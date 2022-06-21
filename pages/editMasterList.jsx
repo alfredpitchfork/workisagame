@@ -40,6 +40,7 @@ const adminPage = () => {
 		setBingoEntry('');
 		console.log('document written with ID: ', docRef.id);
 	};
+
 	return (
 		<div>
 			<Head>
