@@ -15,7 +15,7 @@ const BingoFrame = (card) => {
 	console.log(card);
 
 	return (
-		<div className='w-screen sm:w-4/5'>
+		<div className='w-screen sm:w-4/5 sm:ml-[10vw]'>
 			<div className='grid grid-rows-5 grid-cols-5 gap-0'>
 				{card.card.map((cell) => (
 					<BingoCell key={cell.id} alphabet={cell.entry} />
