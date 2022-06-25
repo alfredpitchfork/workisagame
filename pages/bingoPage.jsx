@@ -63,13 +63,16 @@ const bingoPage = () => {
 				<title>Bingo!</title>
 				<link rel='icon' href='/faviduck.png' />
 			</Head>
-			<div className='main_body h-screen w-screen flex justify-center m-10'>
-				<div className='Headers h-[6vh] bg-sky-500/100 flex items-center justify-items-center flex- w-1/12'>
-					<button onClick={GenerateNewBingo} className='text-zinc-50'>
+			<div className='main_body h-screen w-screen flex justify-center flex-col items-center sm:mt-16'>
+				<div className=''>
+					<button
+						onClick={GenerateNewBingo}
+						className='text-center text-white h-14 bg-sky-500/100 flex items-center justify-center w-44 rounded-lg shadow-lg '
+					>
 						Generate New Bingo
 					</button>
 				</div>
-				<div className=' w-[55rem] h-[55rem]'>
+				<div className='mt-10 w-screen h-4/5 sm:w-5/6 '>
 					{bingoCard.length > 0 && <BingoFrame card={bingoCard} />}
 				</div>
 			</div>

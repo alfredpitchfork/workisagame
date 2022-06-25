@@ -7,10 +7,10 @@ const BingoCell = ({ alphabet }) => {
 	return (
 		<div
 			key={alphabet}
-			className={`h-44 w-44  border-2 border-black items-center flex justify-center relative `}
+			className={`sm:h-44 sm:w-44  border-2 border-black items-center flex justify-center relative h-[100px] w-[75px]`}
 			onClick={() => setStamp(!stamp)}
 		>
-			<p>{alphabet}</p>
+			<p className='text-xs text-center'>{alphabet}</p>
 			<Image
 				src='/LikeABoss.png'
 				layout='fill'
