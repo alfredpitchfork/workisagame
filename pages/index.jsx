@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { auth } from '../firebaseConfig';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import Wave from '../components/Wave.jsx'
 
 const Home = () => {
 	const [email, setEmail] = useState('');
@@ -25,7 +26,7 @@ const Home = () => {
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
 			user.providerData.forEach((profile) => {
-				console.log('Sign-in provider: ' + profile.providerId);
+				console.log('  Sign-in provider: ' + profile.providerId);
 				console.log('  Provider-specific UID: ' + profile.uid);
 				console.log('  Name: ' + profile.displayName);
 				console.log('  Email: ' + profile.email);
@@ -47,11 +48,10 @@ const Home = () => {
 				<link rel='icon' href='/faviduck.png' />
 			</Head>
 
-			<div className=' bg-gradient-to-r from-zinc-300 to-green-900 h-screen w-screen'>
-				<div>No Ducks To Give</div>
-				<Image src='/faviduck.png' width={100} height={100} />
-			</div>
-
+			<div className=' bg-[#0f0f0ff6] h-screen w-screen'>
+			<Wave className="h-screen w-screen z-0 fixed opacity-60 aspect-ratio:auto"/>
+				<div className="flex-auto flex justify-center items-center h-screen">
+					<div className="flex flex-row justify-center items-center h-[40vh] w-[30vw] opacity-70 bg-white">
 			<form onSubmit={loginSubmit}>
 				<input
 					type='text'
@@ -69,6 +69,10 @@ const Home = () => {
 				/>
 				<button type='submit'>Login</button>
 			</form>
+			</div>
+			</div>
+			</div>
+
 		</div>
 	);
 };
