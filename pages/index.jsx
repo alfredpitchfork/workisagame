@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
-import { auth } from '../firebaseConfig';
+import { auth } from '../firebase/firebaseConfig';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import Wave from '../components/Wave.jsx'
 
@@ -47,18 +47,20 @@ const Home = () => {
 				<title>No Ducks To Give</title>
 				<link rel='icon' href='/faviduck.png' />
 			</Head>
-
+	
 			<div className=' bg-[#0f0f0ff6] h-screen w-screen'>
 			<Wave className="h-screen w-screen z-0 fixed opacity-60 aspect-ratio:auto"/>
 				<div className="flex-auto flex justify-center items-center h-screen">
-					<div className="flex flex-row justify-center items-center h-[40vh] w-[30vw] opacity-70 bg-white">
-			<form onSubmit={loginSubmit}>
+					<div className="flex flex-col justify-center items-center h-[40vh] w-[15vw] opacity-70 bg-white">
+						
+			<form onSubmit={loginSubmit} className="flex flex-col items-center h-[100%] w-[100%] justify-center gap-4">
 				<input
 					type='text'
 					placeholder='Email'
 					id='email'
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
+					className="p-2 bg-white font-nunito border-sky-900 border-solid border-2 w-[80%] h-[20%]"
 				/>
 				<input
 					type='text'
@@ -66,13 +68,13 @@ const Home = () => {
 					id='password'
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
+					className="p-2 bg-white font-nunito border-sky-900 border-solid border-2 w-[80%] h-[20%] "
 				/>
-				<button type='submit'>Login</button>
+				<button type='submit' className="bg-neutral-600 h-[20%] w-[80%] text-white font-nunito text-lg">Login</button>
 			</form>
 			</div>
 			</div>
 			</div>
-
 		</div>
 	);
 };

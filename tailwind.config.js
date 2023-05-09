@@ -6,7 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: { 'background': '#6db4ef',}
+      fontFamily: {
+        'goldman': ['Goldman', 'cursive',],
+        'mynerve': ['MyNerve', 'cursive',],
+        'nunito': ['"Nunito"', 'sans-serif',],
+        'brunoace': ['"Bruno Ace"', 'cursive',],
+      }
     },
   },
   plugins: [],

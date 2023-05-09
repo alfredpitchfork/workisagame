@@ -1,9 +1,9 @@
-import { auth } from '/firebaseConfig.js';
+import { auth } from '../firebase/firebaseConfig.js';
 import Head from 'next/head';
 import { useState } from 'react';
-import { createUserWithEmailAndPassword	} from 'firebase/auth';
+import signUpFirebase from '../firebase/auth/signup.js';
 import {  doc, setDoc } from 'firebase/firestore';
-import { db } from '../firebaseConfig';
+import { db } from '../firebase/firebaseConfig.js';
 const signUp = () => {
 	const [username, setUsername] = useState('');
 	const signUpSubmit = async (e) => {
@@ -11,7 +11,7 @@ const signUp = () => {
 		let email = `${username}@noduckstogive.com`;
 		let betterPassword = `EvanIsMyBestFriend`;
 		
-		createUserWithEmailAndPassword(auth, email, betterPassword)
+		const {result, error} = signUpFirebase(auth, email, betterPassword)
 			.then((userCredential) => {
 				// Signed in
 				const user = userCredential.user;
@@ -23,15 +23,13 @@ const signUp = () => {
 					team: 'AK',
 					privilege: 'Basic',
 				});
-			})
+			}).then(() => {setUsername('')})
 			.catch((error) => {
 				const errorCode = error.code;
 				const errorMessage = error.message;
-				// ..
-			});
-
-		
-		setUsername('');
+				});
+		console.log(result);
+		;
 	};
 
 	return (
