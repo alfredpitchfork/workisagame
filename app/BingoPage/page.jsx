@@ -1,11 +1,13 @@
-import BingoFrame from '../components/BingoFrame';
+'use client'
+import BingoFrame from '../../components/BingoFrame';
 import Head from 'next/head';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import shuffleArray from '../utils/RandomSelector';
-import { db } from '../firebaseConfig';
+import shuffleArray from '../../utils/RandomSelector';
+import { db } from '../../firebase/firebaseConfig';
 import { collection } from 'firebase/firestore';
-import { useState } from 'react';
-const bingoPage = () => {
+import {useState} from 'react';
+
+const BingoPage = () => {
 	const [snapshot, loading, error] = useCollection(
 		collection(db, 'masterList')
 	);
@@ -80,4 +82,4 @@ const bingoPage = () => {
 	);
 };
 
-export default bingoPage;
+export default BingoPage;

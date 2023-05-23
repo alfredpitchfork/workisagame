@@ -1,16 +1,19 @@
-import Head from 'next/head';
-import Image from 'next/image';
+'use client'
+
 import { useState } from 'react';
 import { auth } from '../firebase/firebaseConfig';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 import Wave from '../components/Wave.jsx'
+import { useRouter } from 'next/navigation'
+import signIn from '.././firebase/auth/signin.js'
 
-const Home = () => {
-	const [email, setEmail] = useState('');
+const Index = () => {
+    const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const router = useRouter();
 	const loginSubmit = async (e) => {
 		e.preventDefault();
-		signInWithEmailAndPassword(auth, email, password)
+		const { result, error } = await signIn(email, password)
 			.then((userCredential) => {
 				// Signed in
 				const user = userCredential.user;
@@ -19,7 +22,11 @@ const Home = () => {
 			.catch((error) => {
 				const errorCode = error.code;
 				const errorMessage = error.message;
+				return console.log(error)
 			});
+				
+			// else successful
+			return router.push("/BingoPage")
 	};
 
 	const user = auth.currentUser;
@@ -40,14 +47,10 @@ const Home = () => {
 		}
 	});
 	if (user !== null) {
+		router.push('/BingoPage');
 	}
 	return (
 		<div>
-			<Head>
-				<title>No Ducks To Give</title>
-				<link rel='icon' href='/faviduck.png' />
-			</Head>
-	
 			<div className=' bg-[#0f0f0ff6] h-screen w-screen'>
 			<Wave className="h-screen w-screen z-0 fixed opacity-60 aspect-ratio:auto"/>
 				<div className="flex-auto flex justify-center items-center h-screen">
@@ -76,7 +79,9 @@ const Home = () => {
 			</div>
 			</div>
 		</div>
-	);
-};
+	);}
 
-export default Home;
+export default Index;
+
+
+

@@ -1,10 +1,11 @@
-import { auth } from '../firebase/firebaseConfig.js';
+'use client'
+import { auth } from '../../firebase/firebaseConfig.js';
 import Head from 'next/head';
 import { useState } from 'react';
-import signUpFirebase from '../firebase/auth/signup.js';
+import signUpFirebase from '../../firebase/auth/signup.js';
 import {  doc, setDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebaseConfig.js';
-const signUp = () => {
+import { db } from '../../firebase/firebaseConfig.js';
+const SignUp = () => {
 	const [username, setUsername] = useState('');
 	const signUpSubmit = async (e) => {
 		e.preventDefault();
@@ -58,4 +59,4 @@ const signUp = () => {
 	);
 };
 
-export default signUp;
+export default SignUp;
