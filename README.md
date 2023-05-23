@@ -1,23 +1,5 @@
-# Next.js + Tailwind CSS Example
+# Work Is A Game
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This is my latest passion project. I am currently using the NextJS, Firebase and TailwindCSS. The idea came about when I was in onboarding and I wanted to make the experience a bit more fun while remaining productive. I figured BingoCards! There wasn't an available tool where I could just input a list, and they'd randomize and generate from the list. I'd have to manually input each cell, and come up with variations myself. So I built one! The mvp was done over a weekend, and after I presented it to my lead, we decided we'd start it but then we started licensing, so we stored it away for after licensing, but the lead got promoted. We never got around to implementing it, butit is still my first foray into writing my own algorithm. I sorted the entries by ranking of rarity, how often/likely the player is to complete it. And then I can adjust what ratio of common, uncommon, and rare to adjust the difficulty.  The harder ones would be filled with niche scenarios and would rely on luck more than not, and could be a card that is meant to be filled over a week, as opposed to an easy difficulty with numerous common entries that could be filled in a matter of hours.I haven't been keeping up with it as much as I would like since I have started college, but I am currently implementing an auth system, before expanding the content.
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Update: I just recently migrated from nextjs 11 to 13, so there is still a lot of optimization needed in terms of rendering. I've just defaulted everything to client components and pages for now, but most of the pages currently use the useState hook, which requires client component. Once I refactor the pages into components that use hooks and components that don't, it'll be cleaner all around. Currently it is a total mess, because I'm still laying down the foundation for auth. 
