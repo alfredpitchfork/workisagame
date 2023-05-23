@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from "react";
-import {useSpring, animated, config} from 'react-spring';
+import {useSpring, animated, config} from '@react-spring/web';
 const SvgComponent = (props) => {
  
 const [{v,w,x,y,z}] = useSpring(()=>({
