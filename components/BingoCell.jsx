@@ -17,6 +17,7 @@ const BingoCell = ({ alphabet }) => {
 				src='/LikeABoss.png'
 				layout='fill'
 				className={`${stamp ? 'opacity-20' : 'opacity-0'}`}
+				alt='Like A Boss Stamp'
 			/>
 		</div>
 	);
